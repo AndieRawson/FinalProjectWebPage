@@ -28,7 +28,7 @@ library(viridis) #for pretty maps
 ```
 
 
-# All about the worlds moods
+# Percent Change in Happiness
 
 Happiness can be the easiest, or hardest state of feeling to acquire and understand. On top of simply finding the happiest place on earth, our report aims to discover and analyze the regional changes and influencing factors of world happiness level from 2015 to 2017. We did this utilizing a Kaggle [dataset](https://www.kaggle.com/unsdsn/world-happiness) based on the [World Happiness Report](http://worldhappiness.report/). 
 
