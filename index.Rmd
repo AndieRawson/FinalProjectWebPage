@@ -1,0 +1,115 @@
+---
+title: "The “Truth” about World Happiness"
+subtitle: "How has World Happiness changed from 2015 to 2017, and which factors have influenced this change?"
+author: "Andrea R., Laetitia H., Momo J."
+date: "Last updated on `r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    df_print: kable
+    code_folding : hide
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Set R Markdown chunk defaults:
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE, 
+  fig.width = 16/2, fig.height = 9/2
+)
+```
+
+```{r}
+library(tidyverse)
+library(readr)
+library(sf)
+library(viridis) #for pretty maps
+```
+
+
+# All about the worlds moods
+
+Happiness can be the easiest, or hardest state of feeling to acquire and understand. On top of simply finding the happiest place on earth, our report aims to discover and analyze the regional changes and influencing factors of world happiness level from 2015 to 2017. We did this utilizing a Kaggle [dataset](https://www.kaggle.com/unsdsn/world-happiness) based on the [World Happiness Report](http://worldhappiness.report/). 
+
+
+```{r}
+# Data Wrangling 
+happy2015 <- read.csv("world-happiness-report/2015.csv")
+happy2017 <- read.csv("world-happiness-report/2016.csv")
+
+countryShapes <- read_sf("TM_WORLD_BORDERS-0.3") %>%
+  select("Country" = NAME, geometry)
+
+happyRank2015 <- happy2015 %>% 
+  select(Country, Happiness.Score) %>% 
+  rename( "HappinessScore2015" = "Happiness.Score")
+
+happyRank2017 <- happy2017 %>% 
+  select(Country, Happiness.Score) %>% 
+  rename( "HappinessScore2017" = "Happiness.Score")
+
+happyChange <- left_join(happyRank2015,happyRank2017, by = "Country")%>%
+ mutate(happinessChange = HappinessScore2017-HappinessScore2015) 
+
+
+worldHappyChange <- inner_join(happyChange, countryShapes, by = "Country")
+
+```
+
+```{r, echo= FALSE, message=FALSE, warning=FALSE}
+#creating theme for map
+theme_map <- function(...) {
+  theme_minimal() +
+  theme(
+    text = element_text(family = "serif", color = "#22211d"),
+    axis.line = element_blank(),
+    axis.text.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    # panel.grid.minor = element_line(color = "#ebebe5", size = 0.2),
+    panel.grid.major = element_line(color = "#ebebe5", size = 0.2),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "#f5f5f2", color = NA), 
+    panel.background = element_rect(fill = "#f5f5f2", color = NA), 
+    legend.background = element_rect(fill = "#f5f5f2", color = NA),
+    panel.border = element_blank(),
+    ...
+  )
+}
+```
+
+
+```{r}
+ggplot() +
+  geom_sf(data = worldHappyChange, aes(fill = happinessChange)) +
+  theme_map()+
+  labs(x = NULL, 
+       y = NULL, 
+         title = "Change in World Happiness", 
+         subtitle = "Percent Change in Happiness Score from 2015 to 2017") +
+  theme(legend.position = "bottom")+
+  scale_fill_viridis(option = "magma",
+                     name = "Percent Change",
+                     guide = guide_colorbar(
+      direction = "horizontal",
+      barheight = unit(2, units = "mm"),
+      barwidth = unit(50, units = "mm"),
+      draw.ulim = F,
+      title.position = 'top',
+      # some shifting around
+      title.hjust = 0.5,
+      label.hjust = 0.5)
+  )
+    
+```
+
+In the world map seen above, where percentage of happiness score change of each country is represented in color scale to display the improvement, or degradation of happiness. The vacant areas are countries that were either missing values for one year, or missing scores in all three years. The map shows that people in Algeria, Romania, Germany, Senegal, Cameroon, Nepal had a significantly higher percentage change in happiness than other countries from 2015 to 2017, while the happiness level decreased by a noticeable percentage in Venezuela, Mexico, Sudan, Nigeria, Zimbabwe, and Ukraine. This result unsurprisingly corresponded with their domestic political movement and economic progress between 2015 and 2017. For example, Algeria underwent positive governmental reforms under the leadership of President Bouteflika, While Sudan suffered economic turbulence and political protests after the split of their ruling parties.
+
+However, simply looking at percentage change does not tell us much about how the different regions and countries of the world compare in absolute happiness. Continue reading on the “More Information” page to learn more about world happiness.  
+
+
+
+
