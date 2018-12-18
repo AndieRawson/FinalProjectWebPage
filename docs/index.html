@@ -12,7 +12,7 @@
 <meta name="author" content="Andrea R., Laetitia H., Momo J." />
 
 
-<title>World Happiness</title>
+<title>The Truth about World Happiness</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -321,10 +321,10 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">The Short</a>
+  <a href="index.html">Introduction</a>
 </li>
 <li>
-  <a href="more_info.html">The Long</a>
+  <a href="more_info.html">More Information</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -351,9 +351,10 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">World Happiness</h1>
+<h1 class="title toc-ignore">The “Truth” about World Happiness</h1>
+<h3 class="subtitle"><em>How has World Happiness changed from 2015 to 2017, and which factors have influenced this change?</em></h3>
 <h4 class="author"><em>Andrea R., Laetitia H., Momo J.</em></h4>
-<h4 class="date"><em>Last updated on 2018-12-16</em></h4>
+<h4 class="date"><em>Last updated on 2018-12-18</em></h4>
 
 </div>
 
@@ -362,9 +363,9 @@ div.tocify {
 <span class="kw">library</span>(readr)
 <span class="kw">library</span>(sf)
 <span class="kw">library</span>(viridis) <span class="co">#for pretty maps</span></code></pre></div>
-<div id="all-about-the-worlds-moods" class="section level1">
-<h1>All about the worlds moods</h1>
-<p>Happiness can be the easiest, or hardest state of feeling to acquire and understand. On top of simply finding the happiest place on earth, our report aims to discover and analyze the regional changes and influencing factors of world happiness level from 2015 to 2017. We did this utilizing a Kaggle <a href="https://www.kaggle.com/unsdsn/world-happiness">dataset</a> based on the <a href="http://worldhappiness.report/">World Happiness Report</a>.</p>
+<div id="percent-change-in-happiness" class="section level1">
+<h1>Percent Change in Happiness</h1>
+<p>Happiness can be a complicated state of feeling to acquire and understand. On top of simply finding the happiest place on earth, our report aims to discover and analyze the regional changes and influencing factors of world happiness level from 2015 to 2017. We did this utilizing a Kaggle <a href="https://www.kaggle.com/unsdsn/world-happiness">dataset</a> based on the <a href="http://worldhappiness.report/">World Happiness Report</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Data Wrangling </span>
 happy2015 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;world-happiness-report/2015.csv&quot;</span>)
 happy2017 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;world-happiness-report/2016.csv&quot;</span>)
@@ -406,8 +407,15 @@ worldHappyChange &lt;-<span class="st"> </span><span class="kw">inner_join</span
       <span class="dt">label.hjust =</span> <span class="fl">0.5</span>)
   )</code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
-<p>In the world map seen above, where percentage of happiness score change of each country is represented in color scale to display the improvement, or degradation of happiness. The vacant areas are countries that were either missing values for one year, or missing scores in all three years. The map shows that people in Algeria, Romania, Germany, Senegal, Cameroon, Nepal had a significantly higher percentage change in happiness than other countries from 2015 to 2017, while the happiness level decreased by a noticeable percentage in Venezuela, Mexico, Sudan, Nigeria, Zimbabwe, and Ukraine. This result unsurprisingly corresponded with their domestic political movement and economic progress between 2015 and 2017. For example, Algeria underwent positive governmental reforms under the leadership of President Bouteflika, While Sudan suffered economic turbulence and political protests after the split of their ruling parties.</p>
-<p>However, simply looking at percentage change does not tell us much about how the different regions and countries of the world compare in absolute happiness. Continue reading on the “More Information” page to learn more about world happiness.</p>
+<p>In the world map seen above, percent change of happiness score for each country is represented in a color scale that displays the improvement, or degradation of happiness. The vacant areas are countries that were missing values for at least one year. The map shows that people in Algeria, Romania, Germany, Senegal, Cameroon, Nepal had a significantly higher percent change in happiness than other countries from 2015 to 2017, while the happiness level decreased by a noticeable percentage in Venezuela, Mexico, Sudan, Nigeria, Zimbabwe, and Ukraine. This result unsurprisingly corresponded with the countries’ political movement and economic progress between 2015 and 2017. For example, Algeria underwent positive governmental reforms under the leadership of President Bouteflika<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Meanwhile, Sudan suffered economic turbulence and political protests after the split of their ruling parties<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>However, simply looking at percentage change does not tell much about how different regions and countries of the world compare in absolute happiness. Continue reading on <a href="more_info.html">“More Information”</a> page to learn more about world happiness.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>“Algeria Country Profile.” BBC, 16 Dec. 2018, <a href="https://www.bbc.com/news/world-africa-14118852" class="uri">https://www.bbc.com/news/world-africa-14118852</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>“Sudan Country Profile.” BBC, 16 Dec. 2018, <a href="https://www.bbc.com/news/world-africa-14094995" class="uri">https://www.bbc.com/news/world-africa-14094995</a><a href="#fnref2">↩</a></p></li>
+</ol>
 </div>
 
 

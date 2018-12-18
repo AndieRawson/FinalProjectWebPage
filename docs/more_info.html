@@ -321,10 +321,10 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">The Short</a>
+  <a href="index.html">Introduction</a>
 </li>
 <li>
-  <a href="more_info.html">The Long</a>
+  <a href="more_info.html">More Information</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -353,7 +353,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">More information</h1>
 <h4 class="author"><em>Andrea R., Laetitia H., Momo J.</em></h4>
-<h4 class="date"><em>Last updated on 2018-12-16</em></h4>
+<h4 class="date"><em>Last updated on 2018-12-18</em></h4>
 
 </div>
 
@@ -365,7 +365,7 @@ div.tocify {
 <span class="kw">library</span>(leaflet)</code></pre></div>
 <div id="the-data" class="section level1">
 <h1>The Data</h1>
-<p>Our data for measuring world happiness comes from the United Nations Sustainable Development Solutions Network, in the form of their annual World Happiness Report , which is based on the happiness scores data from the Gallup World Poll. The scores range from 0 to 10,with 10 being the best possible life and 0 being the worst. These scores directly reflect a combination of current emotional reports and overall life evaluations.</p>
+<p>Our data for measuring world happiness comes from United Nations Sustainable Development Solutions Network, in the form of their annual World Happiness Report , which is based on the happiness scores data from the Gallup World Poll. The scores range from 0 to 10,with 10 being the happiest and 0 being the unhappiest. These scores reflect a combination of current emotional reports and overall life evaluations.</p>
 <p>We also utilized shape files from <a href="http://thematicmapping.org/downloads/world_borders.php">thethematicmapping.org</a>.</p>
 </div>
 <div id="happiness-score-by-region" class="section level1">
@@ -435,19 +435,19 @@ happySlope &lt;-<span class="st"> </span><span class="kw">rbind</span>(happyRank
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks=</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(
     <span class="dt">title =</span> <span class="st">&quot;Change in Average Happiness Score by Region&quot;</span>)</code></pre></div>
-<p><img src="more_info_files/figure-html/unnamed-chunk-4-1.png" width="768" /> According to the slope graph Australia and New Zealand, North America, Western Europe, and Latin America and Caribbean were the happiest regions in 2015, and remained the top four happiest regions on earth. Southern Asia and Sub-Saharan Africa remained the two least happy regions, regardless of their score fluctuations. The happiness scores of Eastern Asia, Middle East and Northern Africa, Central and Eastern Europe, and Southeastern Asia were relatively close to each other from 2015 through 2017, although Southeastern Asia surpassed Central and Eastern Europe and Middle East and Northern Africa with a slight growth in its happiness score.</p>
-<p>In general, Africa and Asia still suffer from a range of issues, including overpopulation, pandemics and emerging diseases, poverty, hunger to political oppressions, economic downturns and military conflicts. The western hemisphere, which has benefited from hundreds of years of capital accumulation and democratic progress, continues to thrive and manage to keep its top spot of being the happiest place region for their people to live in.</p>
+<p><img src="more_info_files/figure-html/unnamed-chunk-4-1.png" width="768" /> According to the slope graph, Australia and New Zealand, North America, Western Europe, and Latin America and Caribbean were the happiest regions in 2015, and remained the top four happiest regions. Southern Asia and Sub-Saharan Africa remained the two least happy regions, regardless of their score fluctuations. The happiness scores for Eastern Asia, Middle East and Northern Africa, Central and Eastern Europe, and Southeastern Asia were relatively close to each other from 2015 through 2017, despite Southeastern Asia surpassing Central and Eastern Europe as well as Middle East and Northern Africa with its slight growth in happiness score.</p>
+<p>Possible reasons for these rankings may come from the fact that Africa and Asia still suffer from a range of issues, including overpopulation, pandemics, emerging diseases, poverty, hunger, political oppressions, economic downturns and military conflicts. In contrast, the western hemisphere, which has benefited from years of capital accumulation and democratic progress, continues to thrive and keep its top spot for being the happiest place for people to live in.</p>
 </div>
 <div id="shiny-application" class="section level1">
 <h1>Shiny Application</h1>
-<p>Other than focusing on the final happiness scores, the World Happiness Report also provides the breakdown scores of five individual factors and Dystopia which offers insights to the “truth” of happiness, specifically how the change in factors contribute to the change of the overall happiness score. To explore how these effects, click on the picture below to access an interactive shiny application. You can switch between seven different scatterplots, which show the relationship between a percent change in factor and a percent change in happiness score from 2015 to 2017. These factors include: Economy which represents the economic production in terms of GDP, Family which stands for social support, Health which weighs on life expectancy, and Trust describes an absence of corruption. There is also the Dystopia variable. Dystopia is an imaginary country with the least happiest people, offers a benchmark for all countries to be favorably compared in terms of positive values for the previous six key factors. The dystopia variable represents the amount of happiness score that can’t be described by the other factors.</p>
+<p>Other than focusing on the final happiness scores, the World Happiness Report also provides the breakdown scores of five individual factors and Dystopia, which offers insights to the “truth” of happiness, specifically how the change in factors contribute to the change of the overall happiness score. To explore how these factors affect percent change in happiness, click on the picture below to access an interactive shiny application. You can switch between seven different scatterplots, which show the relationship between percent change in factor and percent change in happiness score from 2015 to 2017. These factors include: Economy, which represents the economic production in terms of GDP, Family, which stands for social support, Health, which is based on life expectancy, and Trust, which describes an absence of corruption. An additional variable that accounts for the happiness score is Dystopia, which is an imaginary country with the least happiest people. The variable offers a benchmark for all countries to be favorably compared in terms of positive values for the previous six key factors. It represents the amount of happiness score that can’t be described by the other factors.</p>
 <p><a href="https://andrea-lynn-rawson.shinyapps.io/FinalProjectInteractiveGraph/"><img src="ShinyScreenshot.png" alt="Alt text" /></a></p>
-<p>Comparing the six scatter plots altogether, it appears that love actually is the most important factor for happiness because Family(social support) score implies the strongest positive correlation with the overall happiness score; the more social support people receive, the happier they will be. Freedom, Trust and Generosity also shows a positive correlation with happiness as they commonly represent as positive factors that fulfill people’s lives. However, the effect of Generosity may be confounded by an outlier. On the other hand the scatter plots for Economy and Health display a negative correlation. Like Generosity however, the relationship between Economy and Health, and happiness both seem to be affected by outliers.</p>
+<p>Comparing the six scatter plots altogether, it appears that love is the most important factor for happiness because Family (social support) has the strongest positive correlation with the overall happiness score. The more social support people received, the happier they were. Freedom, Trust and Generosity also showed positive correlations with happiness as they commonly represent positive factors that fulfill people’s lives. However, the effect of Generosity may be confounded by an outlier. On the other hand, the scatter plots for Economy and Health displayed negative correlations, but note that, like Generosity, the relationship may be confounded by outliers.</p>
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion</h1>
-<p>Overall, looking at all three visualizations, it appears that while there may have been large percentage changes in happiness in some countries, as regions happiness scores did not change much between 2015 and 2017. Looking at the percent change in the factors making up the happiness score can be informative for some factors, such as Family, Freedom and Trust, but many of the relationships between the factors and percent change in happiness score are strongly affected by outliers, making the apparent relationship unreliable.</p>
-<p>Although the data provides a logical and consistent analysis on happiness, some critics have questioned the legitimacy of these standards, for the reason that happiness itself is subjective. Africa has continuously been ranked as the least happiest continent, but are African people truly unhappy, or just unhappy by the World Happiness standard? While this data does provide some insights into where in the world is the happiest and why, it does leave something to be desired, as the criteria were created in a western country, and may not reflect happiness in the same way that other cultures experience it.</p>
+<p>Looking at all three visualizations, it appears that while there may have been large percent changes in happiness in some countries, happiness scores did not change much regionally between 2015 and 2017. In terms of factors that make up the happiness score, some can be informative, such as Family, Freedom and Trust, but many of the relationships between the factors and percent change in happiness score are strongly affected by outliers, making the apparent relationship unreliable.</p>
+<p>Although the data provides a logical and consistent analysis on happiness, some critics have questioned the legitimacy of these standards because happiness is a subjective concept. One example that questions the legitimacy of these standards is the ranking of the Sub-Saharan African region, which has continuously been in the bottom. But do people who live there personally feel unhappy? Or are they unhappy by World Happiness standards? While this data does provide some insights into which parts of the world are the happier and why, it does leave some lingering questions, as the criteria was created by western standards that may not reflect happiness the same way that other cultures experience it.</p>
 </div>
 
 

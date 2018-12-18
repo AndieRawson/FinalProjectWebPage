@@ -108,7 +108,7 @@ ggplot() +
 
 In the world map seen above, percent change of happiness score for each country is represented in a color scale that displays the improvement, or degradation of happiness. The vacant areas are countries that were missing values for at least one year. The map shows that people in Algeria, Romania, Germany, Senegal, Cameroon, Nepal had a significantly higher percent change in happiness than other countries from 2015 to 2017, while the happiness level decreased by a noticeable percentage in Venezuela, Mexico, Sudan, Nigeria, Zimbabwe, and Ukraine. This result unsurprisingly corresponded with the countries’ political movement and economic progress between 2015 and 2017. For example, Algeria underwent positive governmental reforms under the leadership of President Bouteflika^["Algeria Country Profile." BBC, 16 Dec. 2018, https://www.bbc.com/news/world-africa-14118852] Meanwhile, Sudan suffered economic turbulence and political protests after the split of their ruling parties^["Sudan Country Profile." BBC, 16 Dec. 2018, https://www.bbc.com/news/world-africa-14094995]
 
-However, simply looking at percentage change does not tell much about how different regions and countries of the world compare in absolute happiness. Continue reading on “More Information” page to learn more about world happiness.  
+However, simply looking at percentage change does not tell much about how different regions and countries of the world compare in absolute happiness. Continue reading on [“More Information”](more_info.html) page to learn more about world happiness.  
 
 
 
